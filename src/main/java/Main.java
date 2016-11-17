@@ -73,18 +73,15 @@ public class Main {
 
         int expressionNumbersCount =  2 + random.nextInt(3);
 
-        int loopCount = 0;
-        do {
-            loopCount ++;
+        for (int i = 0; i < expressionNumbersCount; ++i) {
             int expressionNumber = random.nextInt(1000);
             expressionValue += expressionNumber;
-            builder.append(expressionNumber);
 
-            if (loopCount != expressionNumbersCount) {
+            builder.append(expressionNumber);
+            if (i != (expressionNumbersCount - 1)) {
                 builder.append(" + ");
             }
-
-        } while(loopCount != expressionNumbersCount);
+        }
 
         builder.append(" = ");
         System.out.print(builder.toString());
