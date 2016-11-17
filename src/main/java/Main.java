@@ -8,22 +8,21 @@ public class Main {
 
     public static void main(String[] args) {
         Integer attemptsCounter = 0;
-        long currentTime;
-        long operationTime;
-        long sumTime = 0;
+
+        long totalOperationsTime = 0;
 
         try (BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in))) {
             while (true) {
                 clearConsole();
                 System.out.print("Enter result ");
 
-                // Generate count and value expression
-                int value = getRandomExpressionValue();
+                // Generate count and randomExpressionValue expression
+                int randomExpressionValue = getRandomExpressionValue();
 
-                currentTime = System.currentTimeMillis();
+                long timeBeforeOperation = System.currentTimeMillis();
                 // Read user input
                 String input = buffer.readLine().toLowerCase().trim();
-                operationTime = System.currentTimeMillis() - currentTime;
+                long singleOperationTime = System.currentTimeMillis() - timeBeforeOperation;
 
                 int inputValue = 0;
                 try {
@@ -31,7 +30,7 @@ public class Main {
                         inputValue = Integer.valueOf(input);
                     } else {
                         if (!attemptsCounter.equals(0)) {
-                            System.out.println("avg operation time = " + convertMilisecToTime(sumTime / attemptsCounter));
+                            System.out.println("avg operation time = " + convertMilisecToTime(totalOperationsTime / attemptsCounter));
                         }
 
                         break;
@@ -41,16 +40,16 @@ public class Main {
                     System.out.println("Wrong answer fortmat");
                 }
 
-                if (inputValue == value ) {
+                if (inputValue == randomExpressionValue ) {
                     System.out.println("True");
                 } else {
                     System.out.println("Wrong");
-                    System.out.println("Correct value : " + value);
+                    System.out.println("Correct randomExpressionValue : " + randomExpressionValue);
                     System.out.println("Don't worry try again");
                 }
 
-                System.out.println("Operation time = " + convertMilisecToTime(operationTime));
-                sumTime += operationTime;
+                System.out.println("Operation time = " + convertMilisecToTime(singleOperationTime));
+                totalOperationsTime += singleOperationTime;
                 attemptsCounter++;
             }
         } catch (Exception e) {
