@@ -7,6 +7,11 @@ import java.util.concurrent.TimeUnit;
 public class Main {
 
     public static void main(String[] args) {
+        Main main = new Main();
+        main.startProgram();
+    }
+
+    private void startProgram() {
         Integer attemptsCounter = 0;
 
         long totalOperationsTime = 0;
@@ -65,7 +70,7 @@ public class Main {
      * Generates random sum expression and prints it on console
      * @return the value of expression
      */
-    public static int getRandomExpressionValue(){
+    private int getRandomExpressionValue(){
         Random random = new Random();
         random.setSeed(System.currentTimeMillis());
 
@@ -96,7 +101,7 @@ public class Main {
      * @param timeInMilisec - time in milliseconds
      * @return - formatted time String
      */
-    public static String convertMilisecToTime(long timeInMilisec){
+    private String convertMilisecToTime(long timeInMilisec){
         long remaindedOfDiv = timeInMilisec % 60000;
         long minutes = TimeUnit.MILLISECONDS.toMinutes(timeInMilisec / 60000);
         long sec = TimeUnit.MILLISECONDS.toSeconds(remaindedOfDiv);
@@ -115,7 +120,7 @@ public class Main {
     /**
      * Clears console from character
      */
-    public static void clearConsole() {
+    private void clearConsole() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
