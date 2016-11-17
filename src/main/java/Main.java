@@ -26,7 +26,7 @@ public class Main {
 
                 long singleOperationTime = System.currentTimeMillis() - timeBeforeOperation;
 
-                int userInputValue = 0;
+                int userInputValue;
                 try {
                     if (!userInputString.equals("exit")) {
                         userInputValue = Integer.valueOf(userInputString);
@@ -40,6 +40,7 @@ public class Main {
 
                 } catch (Exception e){
                     System.out.println("Wrong answer fortmat");
+                    continue;
                 }
 
                 if (userInputValue == randomExpressionValue) {
