@@ -3,7 +3,6 @@ import java.io.InputStreamReader;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-
 public class Main {
 
     public static void main(String[] args) {
@@ -11,6 +10,14 @@ public class Main {
         main.startProgram();
     }
 
+    /**
+     * Begin the main program loop. On each iteration generates
+     * random sum expression, which user must evaluate.
+     *
+     * Prints the result of user evaluation and time it took to evaluate the random expression
+     *
+     * If user prints 'exit' stops the loop and prints the average time of random expressions evaluation
+     */
     private void startProgram() {
         Integer attemptsCounter = 0;
 
@@ -57,6 +64,7 @@ public class Main {
                 }
 
                 System.out.println("Operation time = " + convertMilisecToTime(singleOperationTime));
+
                 totalOperationsTime += singleOperationTime;
                 attemptsCounter++;
             }
