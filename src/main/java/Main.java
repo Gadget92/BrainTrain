@@ -20,14 +20,16 @@ public class Main {
                 int randomExpressionValue = getRandomExpressionValue();
 
                 long timeBeforeOperation = System.currentTimeMillis();
-                // Read user input
-                String input = buffer.readLine().toLowerCase().trim();
+
+                // Read user input, trim it and transform it to lower case
+                String userInputString = buffer.readLine().toLowerCase().trim();
+
                 long singleOperationTime = System.currentTimeMillis() - timeBeforeOperation;
 
-                int inputValue = 0;
+                int userInputValue = 0;
                 try {
-                    if (!input.equals("exit")) {
-                        inputValue = Integer.valueOf(input);
+                    if (!userInputString.equals("exit")) {
+                        userInputValue = Integer.valueOf(userInputString);
                     } else {
                         if (!attemptsCounter.equals(0)) {
                             System.out.println("avg operation time = " + convertMilisecToTime(totalOperationsTime / attemptsCounter));
@@ -40,7 +42,7 @@ public class Main {
                     System.out.println("Wrong answer fortmat");
                 }
 
-                if (inputValue == randomExpressionValue ) {
+                if (userInputValue == randomExpressionValue) {
                     System.out.println("True");
                 } else {
                     System.out.println("Wrong");
@@ -52,6 +54,7 @@ public class Main {
                 totalOperationsTime += singleOperationTime;
                 attemptsCounter++;
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
