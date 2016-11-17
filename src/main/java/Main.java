@@ -90,17 +90,14 @@ public class Main {
     }
 
     public static String convertMilisecToTime(long timeInMilisec){
-        long remaindedOfDiv;
-        Long minutes;
-        long sec;
+        long remaindedOfDiv = timeInMilisec % 60000;
+        long minutes = TimeUnit.MILLISECONDS.toMinutes(timeInMilisec / 60000);
+        long sec = TimeUnit.MILLISECONDS.toSeconds(remaindedOfDiv);
+
         String result = "";
 
-        remaindedOfDiv = timeInMilisec % 60000;
-        minutes = TimeUnit.MILLISECONDS.toMinutes(timeInMilisec / 60000);
-        sec = TimeUnit.MILLISECONDS.toSeconds(remaindedOfDiv);
-
-        if (!minutes.equals(0L)) {
-            result += minutes.toString() + " min ";
+        if (minutes != 0L) {
+            result += String.valueOf(minutes) + " min ";
         }
 
         result += sec + " sec ";
