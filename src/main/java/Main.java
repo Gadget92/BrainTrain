@@ -19,7 +19,7 @@ public class Main {
                 System.out.print("Enter result ");
 
                 // Generate count and value expression
-                value = getSumValue();
+                value = getRandomExpressionValue();
 
                 currentTime = System.currentTimeMillis();
                 // Read user input
@@ -59,34 +59,37 @@ public class Main {
         }
     }
 
-    public static int getSumValue(){
+    /**
+     * Generates random sum expression and prints it on console
+     * @return the value of expression
+     */
+    public static int getRandomExpressionValue(){
         Random random = new Random();
         random.setSeed(System.currentTimeMillis());
 
-        int count = 0;
-        int sumValue = 0;
-        int buffValue = 0;
-
         StringBuilder builder = new StringBuilder();
 
-        count =  2 + random.nextInt(3);
+        int expressionValue = 0;
 
-        Integer loopCount = 0;
+        int expressionNumbersCount =  2 + random.nextInt(3);
+
+        int loopCount = 0;
         do {
             loopCount ++;
-            buffValue = random.nextInt(1000);
-            sumValue += buffValue;
-            builder.append(buffValue);
+            int expressionNumber = random.nextInt(1000);
+            expressionValue += expressionNumber;
+            builder.append(expressionNumber);
 
-            if (!loopCount.equals(count)) {
+            if (loopCount != expressionNumbersCount) {
                 builder.append(" + ");
             }
 
-        } while ( !loopCount.equals(count));
-            builder.append(" = ");
+        } while(loopCount != expressionNumbersCount);
+
+        builder.append(" = ");
         System.out.print(builder.toString());
 
-        return sumValue;
+        return expressionValue;
     }
 
     public static String convertMilisecToTime(long timeInMilisec){
