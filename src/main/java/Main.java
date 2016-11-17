@@ -7,7 +7,6 @@ import java.util.concurrent.TimeUnit;
 public class Main {
 
     public static void main(String[] args) {
-        Integer value = 0;
         Integer attemptsCounter = 0;
         long currentTime;
         long operationTime;
@@ -19,7 +18,7 @@ public class Main {
                 System.out.print("Enter result ");
 
                 // Generate count and value expression
-                value = getRandomExpressionValue();
+                int value = getRandomExpressionValue();
 
                 currentTime = System.currentTimeMillis();
                 // Read user input
@@ -89,6 +88,11 @@ public class Main {
         return expressionValue;
     }
 
+    /**
+     * Converts long value of time in milliseconds to String value of hhmmss format
+     * @param timeInMilisec - time in milliseconds
+     * @return - formatted time String
+     */
     public static String convertMilisecToTime(long timeInMilisec){
         long remaindedOfDiv = timeInMilisec % 60000;
         long minutes = TimeUnit.MILLISECONDS.toMinutes(timeInMilisec / 60000);
@@ -105,7 +109,7 @@ public class Main {
         return result;
     }
 
-    public static  void clearConsole() {
+    public static void clearConsole() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
