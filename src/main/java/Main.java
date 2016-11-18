@@ -105,7 +105,7 @@ public class Main {
     }
 
     /**
-     * Converts long value of time in milliseconds to String value of hhmmss format
+     * Converts long value of time in milliseconds to String value of mmss format
      * @param timeInMilisec - time in milliseconds
      * @return - formatted time String
      */
