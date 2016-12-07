@@ -1,5 +1,7 @@
 package solutions.alternative.linklist;
 
+import java.util.LinkedList;
+
 public class MyLinkedList {
     private ListNode head = null;
     private ListNode tail = null;
@@ -87,6 +89,43 @@ public class MyLinkedList {
 
     public ListNode getHead() {
         return head;
+    }
+
+    public void delete(int position) {
+        if (position == 0) {
+            head = head.getNextNode();
+            head.setPreviousNode(null);
+
+            size -= 1;
+
+            return;
+        } else if (position == (size - 1)) {
+            tail = tail.getPreviousNode();
+            tail.setNextNode(null);
+
+            size -= 1;
+
+            return;
+        }
+
+        ListNode nodeToDelete = getNodeAt(position);
+
+        if (nodeToDelete == null) {
+            System.out.println(String.format("Can not delete node at position %d. No node at this position", position));
+
+            return;
+        }
+
+        ListNode previousNode = nodeToDelete.getPreviousNode();
+        ListNode nextNode = nodeToDelete.getNextNode();
+
+        previousNode.setNextNode(nextNode);
+        nextNode.setPreviousNode(previousNode);
+
+        nodeToDelete.setNextNode(null);
+        nodeToDelete.setPreviousNode(null);
+
+        size -= 1;
     }
 
     public void clear() {
