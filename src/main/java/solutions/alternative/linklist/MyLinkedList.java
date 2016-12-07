@@ -30,18 +30,18 @@ public class MyLinkedList {
             return;
         }
 
-        if ((position == size)) {
-            addValue(value);
-
-            return;
-        }
-
         if (position > (size)) {
             System.out.println(String.format(
                     "Can not insert value %d. Position %d is outside list range",
                     value,
                     position
             ));
+
+            return;
+        }
+
+        if ((position == size)) {
+            addValue(value);
 
             return;
         }
@@ -54,6 +54,8 @@ public class MyLinkedList {
 
         previousNode.setNextNode(newNode);
         nodeAtPosition.setPreviousNode(newNode);
+
+        size += 1;
     }
 
     public int getValueAt(int position) {
