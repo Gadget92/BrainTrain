@@ -25,7 +25,7 @@ public class MyLinkedList {
     }
 
     public void insertValue(int value, int position) {
-        if ((position < 0) || (position > size)) {
+        if ((position < 0) || (position > (size - 1))) {
             System.out.println(String.format(
                     "Can not insert value %d. Position %d is outside list range",
                     value,
@@ -45,7 +45,20 @@ public class MyLinkedList {
     }
 
     public ListNode getNodeAt(int position) {
-        return null;
+        if ((position < 0) || (position > (size - 1))) {
+            return null;
+        }
+
+        ListNode currentNode = head;
+        int currentPosition = 0;
+
+        while (currentPosition != position) {
+            currentNode = currentNode.getNextNode();
+
+            currentPosition += 1;
+        }
+
+        return (currentNode != null) ? currentNode : null;
     }
 
     public ListNode getTail() {
