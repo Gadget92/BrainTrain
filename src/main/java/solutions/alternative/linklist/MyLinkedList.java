@@ -1,6 +1,8 @@
 package solutions.alternative.linklist;
 
 
+import java.util.LinkedList;
+
 public class MyLinkedList {
     private ListNode head = null;
     private ListNode tail = null;
@@ -35,7 +37,14 @@ public class MyLinkedList {
             return;
         }
 
+        ListNode newNode = new ListNode(value);
 
+        ListNode nodeAtPosition = getNodeAt(position);
+
+        ListNode previousNode = nodeAtPosition.getPreviousNode();
+
+        previousNode.setNextNode(newNode);
+        nodeAtPosition.setPreviousNode(newNode);
     }
 
     public int getValueAt(int position) {
