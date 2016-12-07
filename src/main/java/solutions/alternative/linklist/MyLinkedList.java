@@ -93,4 +93,30 @@ public class MyLinkedList {
     public int getSize() {
         return size;
     }
+
+    @Override
+    public String toString() {
+        if (size == 0) {
+            return "[]";
+        }
+
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append("[");
+
+        ListNode currentNode = head;
+
+        while (currentNode.getNextNode() != null) {
+            stringBuffer.append(currentNode.getNodeValue());
+
+            if (currentNode != tail) {
+                stringBuffer.append(", ");
+            }
+
+            currentNode = currentNode.getNextNode();
+        }
+
+        stringBuffer.append("]");
+
+        return stringBuffer.toString();
+    }
 }
