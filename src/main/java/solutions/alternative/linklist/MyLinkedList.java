@@ -1,7 +1,5 @@
 package solutions.alternative.linklist;
 
-import java.util.LinkedList;
-
 public class MyLinkedList {
     private ListNode head = null;
     private ListNode tail = null;
