@@ -1,8 +1,5 @@
 package solutions.alternative.linklist;
 
-
-import java.util.LinkedList;
-
 public class MyLinkedList {
     private ListNode head = null;
     private ListNode tail = null;
@@ -100,23 +97,23 @@ public class MyLinkedList {
             return "[]";
         }
 
-        StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append("[");
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("[");
 
         ListNode currentNode = head;
 
         while (currentNode.getNextNode() != null) {
-            stringBuffer.append(currentNode.getNodeValue());
+            stringBuilder.append(currentNode.getNodeValue());
 
             if (currentNode != tail) {
-                stringBuffer.append(", ");
+                stringBuilder.append(", ");
             }
 
             currentNode = currentNode.getNextNode();
         }
 
-        stringBuffer.append("]");
+        stringBuilder.append("]");
 
-        return stringBuffer.toString();
+        return stringBuilder.toString();
     }
 }
