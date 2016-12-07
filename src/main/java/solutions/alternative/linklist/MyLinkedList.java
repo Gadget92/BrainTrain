@@ -20,6 +20,8 @@ public class MyLinkedList {
             tail = newNode;
             tail.setPreviousNode(lastNode);
         }
+
+        size += 1;
     }
 
     public ListNode getTail() {
