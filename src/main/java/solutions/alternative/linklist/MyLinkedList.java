@@ -52,8 +52,17 @@ public class MyLinkedList {
 
         ListNode previousNode = nodeAtPosition.getPreviousNode();
 
-        previousNode.setNextNode(newNode);
         nodeAtPosition.setPreviousNode(newNode);
+
+        newNode.setNextNode(nodeAtPosition);
+
+        if (previousNode != null) {
+            previousNode.setNextNode(newNode);
+
+            newNode.setPreviousNode(previousNode);
+        } else {
+            head = newNode;
+        }
 
         size += 1;
     }
@@ -147,15 +156,14 @@ public class MyLinkedList {
 
         ListNode currentNode = head;
 
-        while (currentNode.getNextNode() != null) {
+        do {
             stringBuilder.append(currentNode.getNodeValue());
 
             if (currentNode != tail) {
                 stringBuilder.append(", ");
             }
 
-            currentNode = currentNode.getNextNode();
-        }
+        } while ((currentNode = currentNode.getNextNode()) != null);
 
         stringBuilder.append("]");
 
