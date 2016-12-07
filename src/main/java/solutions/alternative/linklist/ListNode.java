@@ -37,4 +37,9 @@ public class ListNode {
     public void setNextNode(ListNode nextNode) {
         this.nextNode = nextNode;
     }
+
+    @Override
+    public String toString() {
+        return String .valueOf(nodeValue);
+    }
 }
