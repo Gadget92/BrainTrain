@@ -18,6 +18,7 @@ public class MyLinkedList {
             lastNode.setNextNode(newNode);
 
             tail = newNode;
+            tail.setPreviousNode(lastNode);
         }
     }
 
