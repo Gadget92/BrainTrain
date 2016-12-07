@@ -27,7 +27,19 @@ public class MyLinkedList {
     }
 
     public void insertValue(int value, int position) {
-        if ((position < 0) || (position > (size - 1))) {
+        if (position < 0) {
+            System.out.println(String.format("Got position %d. Position can not be negative", position));
+
+            return;
+        }
+
+        if ((position == size)) {
+            addValue(value);
+
+            return;
+        }
+
+        if (position > (size)) {
             System.out.println(String.format(
                     "Can not insert value %d. Position %d is outside list range",
                     value,
