@@ -89,6 +89,12 @@ public class MyLinkedList {
         return head;
     }
 
+    public void clear() {
+        head = tail = null;
+
+        size = 0;
+    }
+
     public int getSize() {
         return size;
     }
