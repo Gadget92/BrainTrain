@@ -1,40 +1,37 @@
 package solutions.alternative.linklist;
 
-/**
- * Created by zapolsky on 07.12.2016.
- */
-public class ListNode {
-    private int nodeValue;
+public class ListNode<T> {
+    private T nodeValue;
 
-    private ListNode previousNode = null;
+    private ListNode<T> previousNode = null;
 
-    private ListNode nextNode = null;
+    private ListNode<T> nextNode = null;
 
-    ListNode(int nodeValue) {
+    ListNode(T nodeValue) {
         this.nodeValue = nodeValue;
     }
 
-    public int getNodeValue() {
+    public T getNodeValue() {
         return nodeValue;
     }
 
-    public void setNodeValue(int nodeValue) {
+    public void setNodeValue(T nodeValue) {
         this.nodeValue = nodeValue;
     }
 
-    public ListNode getPreviousNode() {
+    public ListNode<T> getPreviousNode() {
         return previousNode;
     }
 
-    public void setPreviousNode(ListNode previousNode) {
+    public void setPreviousNode(ListNode<T> previousNode) {
         this.previousNode = previousNode;
     }
 
-    public ListNode getNextNode() {
+    public ListNode<T> getNextNode() {
         return nextNode;
     }
 
-    public void setNextNode(ListNode nextNode) {
+    public void setNextNode(ListNode<T> nextNode) {
         this.nextNode = nextNode;
     }
 

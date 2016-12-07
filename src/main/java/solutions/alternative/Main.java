@@ -11,7 +11,7 @@ public class Main {
     }
 
     private static void myLinkedListTest() {
-        MyLinkedList linkedList = new MyLinkedList();
+        MyLinkedList<Integer> linkedList = new MyLinkedList<>();
 
         System.out.println("Created new list: " + linkedList);
 

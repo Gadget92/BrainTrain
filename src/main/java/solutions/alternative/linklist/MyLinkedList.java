@@ -1,19 +1,19 @@
 package solutions.alternative.linklist;
 
-public class MyLinkedList {
-    private ListNode head = null;
-    private ListNode tail = null;
+public class MyLinkedList<T> {
+    private ListNode<T> head = null;
+    private ListNode<T> tail = null;
 
     private int size = 0;
 
-    public void addValue(int value) {
-        ListNode newNode = new ListNode(value);
+    public void addValue(T value) {
+        ListNode<T> newNode = new ListNode<>(value);
 
         if (size == 0) {
             head = newNode;
             tail = newNode;
         } else {
-            ListNode lastNode = tail;
+            ListNode<T> lastNode = tail;
             lastNode.setNextNode(newNode);
 
             tail = newNode;
@@ -23,7 +23,7 @@ public class MyLinkedList {
         size += 1;
     }
 
-    public void insertValue(int value, int position) {
+    public void insertValue(T value, int position) {
         if (position < 0) {
             System.out.println(String.format("Got position %d. Position can not be negative", position));
 
@@ -32,7 +32,7 @@ public class MyLinkedList {
 
         if (position > (size)) {
             System.out.println(String.format(
-                    "Can not insert value %d. Position %d is outside list range",
+                    "Can not insert value %s. Position %d is outside list range",
                     value,
                     position
             ));
@@ -46,11 +46,11 @@ public class MyLinkedList {
             return;
         }
 
-        ListNode newNode = new ListNode(value);
+        ListNode<T> newNode = new ListNode<>(value);
 
-        ListNode nodeAtPosition = getNodeAt(position);
+        ListNode<T> nodeAtPosition = getNodeAt(position);
 
-        ListNode previousNode = nodeAtPosition.getPreviousNode();
+        ListNode<T> previousNode = nodeAtPosition.getPreviousNode();
 
         nodeAtPosition.setPreviousNode(newNode);
 
@@ -67,18 +67,18 @@ public class MyLinkedList {
         size += 1;
     }
 
-    public int getValueAt(int position) {
-        ListNode nodeAtPosition = getNodeAt(position);
+    public T getValueAt(int position) {
+        ListNode<T> nodeAtPosition = getNodeAt(position);
 
         return nodeAtPosition.getNodeValue();
     }
 
-    private ListNode getNodeAt(int position) {
+    private ListNode<T> getNodeAt(int position) {
         if ((position < 0) || (position > (size - 1))) {
             return null;
         }
 
-        ListNode currentNode = head;
+        ListNode<T> currentNode = head;
         int currentPosition = 0;
 
         while (currentPosition != position) {
@@ -115,7 +115,7 @@ public class MyLinkedList {
             return;
         }
 
-        ListNode nodeToDelete = getNodeAt(position);
+        ListNode<T> nodeToDelete = getNodeAt(position);
 
         if (nodeToDelete == null) {
             System.out.println(String.format("Can not delete node at position %d. No node at this position", position));
@@ -123,8 +123,8 @@ public class MyLinkedList {
             return;
         }
 
-        ListNode previousNode = nodeToDelete.getPreviousNode();
-        ListNode nextNode = nodeToDelete.getNextNode();
+        ListNode<T> previousNode = nodeToDelete.getPreviousNode();
+        ListNode<T> nextNode = nodeToDelete.getNextNode();
 
         previousNode.setNextNode(nextNode);
         nextNode.setPreviousNode(previousNode);
