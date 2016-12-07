@@ -24,6 +24,20 @@ public class MyLinkedList {
         size += 1;
     }
 
+    public void insertValue(int value, int position) {
+        if ((position < 0) || (position > size)) {
+            System.out.println(String.format(
+                    "Can not insert value %d. Position %d is outside list range",
+                    value,
+                    position
+            ));
+
+            return;
+        }
+
+
+    }
+
     public ListNode getTail() {
         return tail;
     }
