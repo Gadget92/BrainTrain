@@ -73,7 +73,7 @@ public class MyLinkedList {
         return nodeAtPosition.getNodeValue();
     }
 
-    public ListNode getNodeAt(int position) {
+    private ListNode getNodeAt(int position) {
         if ((position < 0) || (position > (size - 1))) {
             return null;
         }
