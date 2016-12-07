@@ -2,10 +2,10 @@ package solutions.alternative.linklist;
 
 
 public class MyLinkedList {
-
     private ListNode head = null;
-
     private ListNode tail = null;
+
+    private int size = 0;
 
     public void addValue(int value) {
         ListNode newNode = new ListNode(value);
@@ -28,5 +28,9 @@ public class MyLinkedList {
 
     public ListNode getHead() {
         return head;
+    }
+
+    public int getSize() {
+        return size;
     }
 }
