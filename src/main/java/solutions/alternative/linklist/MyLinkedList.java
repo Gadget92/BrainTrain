@@ -38,6 +38,16 @@ public class MyLinkedList {
 
     }
 
+    public int getValueAt(int position) {
+        ListNode nodeAtPosition = getNodeAt(position);
+
+        return nodeAtPosition.getNodeValue();
+    }
+
+    public ListNode getNodeAt(int position) {
+        return null;
+    }
+
     public ListNode getTail() {
         return tail;
     }
