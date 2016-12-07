@@ -10,7 +10,7 @@ public class MyLinkedList {
     public void addValue(int value) {
         ListNode newNode = new ListNode(value);
 
-        if (tail == null) {
+        if (size == 0) {
             head = newNode;
             tail = newNode;
         } else {
