@@ -31,21 +31,24 @@ public class FileFind {
     }
 
     private void findFileInDirectory(File directory, String fileName) {
-        File[] directoryContent = directory.listFiles();
+        File[] directoryEntries = directory.listFiles();
 
-        if (directoryContent == null) {
+        if (directoryEntries == null) {
             return;
         }
 
-        List<String> foundFilesList = Arrays.stream(directoryContent)
+        List<File> directoryContent = Arrays.asList(directoryEntries);
+
+
+        List<String> foundFilesList = directoryContent.parallelStream()
                 .filter(File::isFile)
-                .filter(directoryFile -> directoryFile.getName().contains(fileName))
+                .filter(directoryFile -> directoryFile.getName().toLowerCase().contains(fileName))
                 .map(File::getPath)
                 .collect(Collectors.toCollection(ArrayList::new));
 
         foundFiles.addAll(foundFilesList);
 
-        Arrays.stream(directoryContent)
+        directoryContent.parallelStream()
                 .filter(File::isDirectory)
                 .forEach(subDirectory -> findFileInDirectory(subDirectory, fileName));
 

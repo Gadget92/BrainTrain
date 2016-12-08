@@ -12,9 +12,9 @@ public class Main {
     }
 
     private static void findFileTest() {
-        String sourceDirectoryName = "d:\\Study";
+        String sourceDirectoryName = "d:\\work";
 
-        String fileName = "main.c";
+        String fileName = "python";
 
         FileFind fileFind = new FileFind();
 
