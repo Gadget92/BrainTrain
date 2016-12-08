@@ -1,12 +1,46 @@
 package solutions.alternative;
 
+import solutions.alternative.find.FileFind;
 import solutions.alternative.linklist.MyLinkedList;
 
 public class Main {
 
     public static void main(String[] args) {
+//        myLinkedListTest();
 
-        myLinkedListTest();
+        findFileTest();
+    }
+
+    private static void findFileTest() {
+        String sourceDirectoryName = "d:\\Study";
+
+        String fileName = "main.c";
+
+        FileFind fileFind = new FileFind();
+
+        long startTime = System.currentTimeMillis();
+
+        fileFind.find(sourceDirectoryName, fileName);
+
+        int mb = 1024*1024;
+
+        Runtime runtime = Runtime.getRuntime();
+
+        System.out.println(
+                String.format(
+                        "\nMemory to find %s in %s directory = %.3f Mb",
+                        fileName,
+                        sourceDirectoryName,
+                        ((double)runtime.totalMemory() - runtime.freeMemory()) / mb));
+
+        long endTime = System.currentTimeMillis();
+
+        System.out.println(
+                String.format(
+                        "\nTime spent to find %s in %s directory = %.3f seconds",
+                        fileName,
+                        sourceDirectoryName,
+                        ((endTime - startTime) / 1000.0)));
 
     }
 

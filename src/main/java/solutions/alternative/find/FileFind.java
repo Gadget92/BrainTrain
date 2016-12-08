@@ -32,16 +32,13 @@ public class FileFind {
                 .filter(File::isFile)
                 .collect(Collectors.toList());
 
-        subDirectories.forEach(subDirectory -> System.out.print(subDirectory + " "));
-
-        directoryFiles.forEach(directoryFile -> System.out.print(directoryFile + " "));
     }
 
     private boolean validDirectoryName(File sourceDirectory) {
         if (!sourceDirectory.exists()) {
             System.out.println(String.format(
                     "Error! Directory %s does not exists",
-                    sourceDirectory.getName())
+                    sourceDirectory.getPath())
             );
 
             return false;
